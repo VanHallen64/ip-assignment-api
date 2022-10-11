@@ -22,8 +22,8 @@ exports.ipAssignmentController = function(req, serverRes) {
     TD.getCIs(AppID, IPsearchParams)
         .then(CIs => {
             console.log(CIs[0].ID);
-            TD.getCIRelationships(AppID, CIs[0].ID).then(response => {
-                console.log(response);
+            TD.getCIRelationships(AppID, CIs[0].ID).then(relationships => {
+                console.log(relationships[0]);
             })
             .catch(err => {
                 console.log(err);
@@ -32,5 +32,4 @@ exports.ipAssignmentController = function(req, serverRes) {
         .catch(err => {
             console.log(err);
         })
-    
 }
