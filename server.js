@@ -4,6 +4,6 @@ var express = require('express'),
     routes = require('./api/routes/ipAssignmentRoutes'); //importing route
 routes(app); //register the route
 
-app.listen(port);
-
-console.log('IP Assignment RESTful API server started on: ' + port);
+app.listen(port, function(err) {
+    console.log('IP Assignment RESTful API server started on port: ' + port);
+})
