@@ -9,8 +9,8 @@ exports.ipAssignmentController = function(req, serverRes) {
     const TD = new TDAPI({
         baseUrl: 'https://langara.teamdynamix.com/SBTDWebApi/api',
         credentials: {
-            BEID: '1CC3FF6F-33A6-4148-B145-F5581A4F32BD',
-            WebServicesKey: 'A7DA41FD-189A-420C-841D-5BD13BAA4B41'
+            BEID: process.env.BEID,
+            WebServicesKey: process.env.WebServicesKey
         }
     });
     var IPObject = {};
