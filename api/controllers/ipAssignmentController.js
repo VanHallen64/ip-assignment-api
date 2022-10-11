@@ -4,7 +4,6 @@ exports.ipAssignmentController = function(req, serverRes) {
     console.log("Logging into TDx");
 
     const TDAPI = require('tdapi');
- 
     // Authenticate
     const TD = new TDAPI({
         baseUrl: 'https://langara.teamdynamix.com/SBTDWebApi/api',
@@ -13,6 +12,7 @@ exports.ipAssignmentController = function(req, serverRes) {
             WebServicesKey: process.env.WebServicesKey
         }
     });
+    console.log(TD);
     var IPObject = {};
     var IPsearchParams = {
         TypeIDs: [10044],
@@ -23,7 +23,7 @@ exports.ipAssignmentController = function(req, serverRes) {
         .then(CIs => {
             console.log(CIs[0].ID);
             TD.getCIRelationships(AppID, CIs[0].ID).then(relationships => {
-                console.log(relationships[0]);
+                //console.log(relationships[0]);
             })
             .catch(err => {
                 console.log(err);
