@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const TDAPI = require('tdapi');
 exports.ipAssignmentController = function(req, serverRes) {
     console.log("Logging into TDx");
