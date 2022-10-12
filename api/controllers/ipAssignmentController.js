@@ -1,9 +1,8 @@
 const fetch = require('node-fetch');
-
+const TDAPI = require('tdapi');
 exports.ipAssignmentController = function(req, serverRes) {
     console.log("Logging into TDx");
-
-    const TDAPI = require('tdapi');
+    
     // Authenticate
     const TD = new TDAPI({
         baseUrl: 'https://langara.teamdynamix.com/SBTDWebApi/api',
