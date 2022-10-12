@@ -1,6 +1,6 @@
 const TDAPI = require('tdapi');
 exports.ipAssignmentController = function(req, serverRes) {
-    console.log("Logging into TDx");
+    return req;
     
     // Authenticate
     const TD = new TDAPI({
@@ -10,18 +10,20 @@ exports.ipAssignmentController = function(req, serverRes) {
             WebServicesKey: process.env.WebServicesKey
         }
     });
-    console.log(TD);
+
     var IPObject = {};
     var IPsearchParams = {
         TypeIDs: [10044],
         NameLike: "10.1.0.1"
     };
-    var AppID = 292;
-    TD.getCIs(AppID, IPsearchParams)
+
+    TD.getCIs(process.env.APP_ID, IPsearchParams)
         .then(CIs => {
             console.log(CIs[0].ID);
             TD.getCIRelationships(AppID, CIs[0].ID).then(relationships => {
-                //console.log(relationships[0]);
+                if(relationships.length > 0) {
+                    reject("This IP is assigned");
+                }
             })
             .catch(err => {
                 console.log(err);
