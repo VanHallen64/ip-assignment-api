@@ -1,6 +1,6 @@
 const TDAPI = require('tdapi');
 exports.ipAssignmentController = function(req, serverRes) {
-    return req;
+    return serverRes.send(req);
     
     // Authenticate
     const TD = new TDAPI({
